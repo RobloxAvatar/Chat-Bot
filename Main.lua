@@ -1,3 +1,5 @@
+--test
+
 if disable then disable() end
 local Players = game:GetService("Players")
 local lp = Players.LocalPlayer or Players:GetPropertyChangedSignal("LocalPlayer"):Wait() and Players.LocalPlayer
@@ -31,7 +33,7 @@ commands = {
         getroot().CFrame = getroot(speaker).CFrame
     end,
     ["die"] = function(speaker)
-        die(speaker)
+        die()
     end
 }
 
