@@ -1,5 +1,5 @@
 --[[
-    Updated, Kill!
+    Updated, Die!
 ]]
 
 if disable then disable() end
@@ -25,9 +25,8 @@ local function getroot(plr)
     return humanoid.RootPart
 end
 
-local function die(plr)
-    if not plr then plr = lp end
-    getchar(plr):BreakJoints()
+local function die()
+    getchar():BreakJoints()
 end
 
 commands = {
@@ -35,7 +34,7 @@ commands = {
         getroot().CFrame = getroot(speaker).CFrame
     end,
     ["die"] = function()
-        getchar():BreakJoints()
+        die()
     end
 }
 
