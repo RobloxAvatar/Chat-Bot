@@ -1,7 +1,3 @@
---[[
-    Updated, Die!
-]]
-
 if disable then disable() end
 local Players = game:GetService("Players")
 local lp = Players.LocalPlayer or Players:GetPropertyChangedSignal("LocalPlayer"):Wait() and Players.LocalPlayer
@@ -25,16 +21,17 @@ local function getroot(plr)
     return humanoid.RootPart
 end
 
-local function die()
-    getchar():BreakJoints()
+local function die(plr)
+    if not plr then plr = lp end
+    getchar(plr):BreakJoints()
 end
 
 commands = {
     ["bring"] = function(speaker)
         getroot().CFrame = getroot(speaker).CFrame
     end,
-    ["die"] = function()
-        die()
+    ["die"] = function(speaker)
+        die(speaker)
     end
 }
 
