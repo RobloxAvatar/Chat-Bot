@@ -1,3 +1,7 @@
+--[[
+    Updated!
+]]
+
 if disable then disable() end
 local Players = game:GetService("Players")
 local lp = Players.LocalPlayer or Players:GetPropertyChangedSignal("LocalPlayer"):Wait() and Players.LocalPlayer
@@ -24,7 +28,7 @@ end
 local function kill(plr)
     if not plr then plr = lp end
     getchar(plr):BreakJoints()
-end)
+end
 
 commands = {
     ["bring"] = function(speaker)
@@ -47,7 +51,7 @@ local function init(plr)
     end)
 end
 
-connections["PlayerRemoving"] = Players.PlayerRemoving:Conncet(function(plr)
+connections["PlayerRemoving"] = Players.PlayerRemoving:Connect(function(plr)
     connections[plr]:Disconnect()
     connections[plr] = nil
 end)
@@ -62,4 +66,4 @@ getgenv().disable = function()
         v:Disconnect()
     end
     getgenv().disable = nil
-end)
+end
